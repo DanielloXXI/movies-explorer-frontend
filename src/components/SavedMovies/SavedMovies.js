@@ -2,7 +2,7 @@ import './SavedMovies.css'
 import Movies from '../Movies/Movies';
 import Header from '../Header/Header';
 import Footer from '../Footer/Footer';
-import search from '../../images/search.png';
+import search from '../../images/search.svg';
 
 function SavedMovies(props) {
 
@@ -11,7 +11,7 @@ function SavedMovies(props) {
         <>
             <Header></Header>
             <main className='movies'>
-                <form className='movies__form' name={`auth__form`} noValidate>
+                <form className='movies__form' name={`auth__form`}>
                     <label className='movies__fieldset'>
                         <img src={search} alt='Поиск' className='movies__search-icon'></img>
                         <input type='text' name="film" className="movies__input movies__input_film" id="film" required placeholder='Фильм'>

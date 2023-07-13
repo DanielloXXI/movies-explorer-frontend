@@ -111,22 +111,19 @@ function Main() {
                     </div>
                     <div className="main__border main__border_column main__border-links">
                         <h5 className="student__portfolio">Портфолио</h5>
-                        <div className="student__site">
-                            <h4 className="student__site-text">Статичный сайт</h4>
-                            <a href="https://danielloxxi.github.io/how-to-learn/" target="_blank" rel="noreferrer noopener" className="student__link"><img src={strelka} alt="Ссылка"></img></a>
-                        </div>
+                        <a href="https://danielloxxi.github.io/how-to-learn/" target="_blank" rel="noreferrer noopener" className="student__link"><h4 className="student__site-text">Статичный сайт</h4><img src={strelka} alt="Ссылка"></img></a>
                         <div className="student__line">
                         </div>
-                        <div className="student__site">
+                        <a href="https://danielloxxi.github.io/Russian-travel/" target="_blank" rel="noreferrer noopener" className="student__link">
                             <h4 className="student__site-text">Адаптивный сайт</h4>
-                            <a href="https://danielloxxi.github.io/Russian-travel/" target="_blank" rel="noreferrer noopener" className="student__link"><img src={strelka} alt="Ссылка"></img></a>
-                        </div>
+                            <img src={strelka} alt="Ссылка"></img></a>
+
                         <div className="student__line">
                         </div>
-                        <div className="student__site">
+                        <a href="https://danielloxxi.github.io/react-mesto-auth/#/sign-in" target="_blank" rel="noreferrer noopener" className="student__link">
                             <h4 className="student__site-text">Одностраничное приложение</h4>
-                            <a href="https://danielloxxi.github.io/react-mesto-auth/#/sign-in" target="_blank" rel="noreferrer noopener" className="student__link"><img src={strelka} alt="Ссылка"></img></a>
-                        </div>
+                            <img src={strelka} alt="Ссылка"></img></a>
+
                     </div>
                 </section>
             </main >

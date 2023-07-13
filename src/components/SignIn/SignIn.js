@@ -53,7 +53,7 @@ function SignIn(props) {
             <h1 className='auth__title'>
                 Рады видеть!
             </h1>
-            <form className={`auth__form`} name={`auth__form`} noValidate>
+            <form className={`auth__form`} name={`auth__form`}>
                 <label className="auth__fieldset">
                     <span className='auth__input-text auth__input-text_email'>Почта</span>
                     <input type="email" name="email" className="auth__input auth__input_email"

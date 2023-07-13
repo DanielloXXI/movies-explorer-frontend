@@ -50,7 +50,7 @@ function Profile(props) {
             <Header></Header>
             <main className='profile'>
                 <h1 className='profile__title'>Привет, Виталий!</h1>
-                <form className={`profile__form`} name={`profile__form`} noValidate>
+                <form className={`profile__form`} name={`profile__form`}>
                     <label className="profile__fieldset">
                         <span className='profile__input-text profile__input-text_name'>Имя</span>
                         <input type="text" name="name" className="profile__input profile__input_name"

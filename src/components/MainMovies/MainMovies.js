@@ -3,7 +3,7 @@ import Movies from '../Movies/Movies';
 import React from 'react';
 import Header from '../Header/Header';
 import Footer from '../Footer/Footer';
-import search from '../../images/search.png';
+import search from '../../images/search.svg';
 
 function MainMovies(props) {
 

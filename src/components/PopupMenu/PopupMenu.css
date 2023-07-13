@@ -52,6 +52,10 @@
     color: black;
 }
 
+.popup__account-logo {
+    margin: 0 0 0 14px;
+}
+
 .popup__account-link:active {
     color: black;
 }
@@ -61,6 +65,7 @@
 }
 
 .popup__account-link:hover {
+    transition: 0.5s;
     opacity: 0.6;
 }
 
@@ -79,7 +84,6 @@
     line-height: 12px;
     cursor: pointer;
     margin: 0 0 90px 0;
-    transition: 0.5s;
 }
 
 

@@ -45,6 +45,10 @@
     outline: none;
 }
 
+.profile__input:focus {
+    outline: 1px solid lightgray;
+}
+
 .profile__input-error_invisible {
     padding: 0;
     color: #EE3465;

@@ -1,7 +1,7 @@
 import './Header.css'
 import logo from '../../images/logo.svg';
 import NavBar from '../NavBar/NavBar';
-import account from '../../images/account.png';
+import account from '../../images/account.svg';
 import { Link } from 'react-router-dom';
 import burger from '../../images/burger.svg';
 import PopupMenu from '../PopupMenu/PopupMenu';

@@ -27,12 +27,12 @@
     line-height: 12px;
     cursor: pointer;
     margin: 21px 0 0 0;
-    transition: 0.5s;
 }
 
 .header__account-link {
     text-decoration: none;
     color: black;
+    transition: 0.5s;
 }
 
 .header__account-link:active {
@@ -44,7 +44,7 @@
 }
 
 .header__account-logo {
-    margin: 0 0 0 7px;
+    margin: 0 0 0 14px;
 }
 
 .header__account-link:hover {

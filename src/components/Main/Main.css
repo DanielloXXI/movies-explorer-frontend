@@ -378,13 +378,6 @@
     opacity: 0.6;
 }
 
-.student__site {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: space-between;
-}
-
 .student__portfolio {
     font-style: normal;
     font-weight: 400;
@@ -409,6 +402,15 @@
     width: 100%;
     height: 1px;
     margin: 0 0 20px 0;
+}
+
+.student__link {
+    text-decoration: none;
+    color: black;
+    transition: 0.5s;
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
 }
 
 .student__link:hover {

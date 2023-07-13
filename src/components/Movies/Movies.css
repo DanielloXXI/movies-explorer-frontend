@@ -35,7 +35,10 @@
     border: 0;
     width: 100%;
     margin: 0 21px 0 10px;
-    outline: none;
+}
+
+.movies__input:focus {
+    outline: 1px solid lightgray;
 }
 
 .movies__button {
@@ -50,6 +53,11 @@
     width: 58px;
     height: 34px;
     cursor: pointer;
+    transition: 0.5s;
+}
+
+.movies__button:hover {
+    opacity: 0.9;
 }
 
 .search-form__checkbox {
@@ -69,14 +77,14 @@
     top: 0;
     width: 36px;
     height: 20px;
-    background-image: url("../../images/checkbox_inactive.png");
+    background-image: url("../../images/checkbox_inactive.svg");
     background-size: cover;
     transition: 0.3s;
     transition-timing-function: steps(200, jump-end);
 }
 
 .search-form__checkbox:checked+label:before {
-    background-image: url("../../images/checkbox_active.png");
+    background-image: url("../../images/checkbox_active.svg");
 }
 
 .search-form__checkbox-container {

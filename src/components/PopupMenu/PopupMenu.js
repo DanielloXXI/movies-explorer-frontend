@@ -1,7 +1,7 @@
 import './PopupMenu.css'
 import NavBar from '../NavBar/NavBar';
 import { Link } from 'react-router-dom';
-import account from '../../images/account.png';
+import account from '../../images/account.svg';
 import X from '../../images/X.svg';
 
 function PopupMenu(props) {

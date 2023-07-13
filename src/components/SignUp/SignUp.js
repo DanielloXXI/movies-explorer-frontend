@@ -54,7 +54,7 @@ function SignUp(props) {
             <h1 className='auth__title'>
                 Добро пожаловать!
             </h1>
-            <form className={`auth__form`} name={`auth__form`} noValidate>
+            <form className={`auth__form`} name={`auth__form`}>
                 <label className="auth__fieldset">
                     <span className='auth__input-text auth__input-text_name'>Имя</span>
                     <input type="text" name="name" className="auth__input auth__input_name" id="name" minLength="2"
