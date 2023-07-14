@@ -1,0 +1,975 @@
+.main__header {
+    background: hsl(230, 10%, 88%);
+}
+
+.main__header-logo {
+    margin: 18px 0 18px 0;
+    width: 38px;
+    height: 38px;
+}
+
+.main__border {
+    width: 89%;
+    margin: 0 auto 0 auto;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.main__border_column {
+    flex-direction: column;
+}
+
+.main__header-registration {
+    font-style: normal;
+    font-weight: 500;
+    font-size: 12px;
+    line-height: 16px;
+    color: #000000;
+    text-decoration: none;
+    margin: 29px 30px 0 0;
+    transition: 0.5s;
+}
+
+.main__header-registration:active {
+    color: #000000;
+}
+
+.main__header-registration:visited {
+    color: #000000;
+}
+
+.main__header-registration:hover {
+    opacity: 0.6;
+}
+
+.main__header-auth {
+    background: #3456F3;
+    border: 0;
+    border-radius: 3px;
+    width: 76px;
+    height: 32px;
+    text-align: center;
+    color: white;
+    margin: 21px 0 0 0;
+    padding: 0;
+    cursor: pointer;
+    transition: 0.5s;
+    font-size: 12px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 16px;
+}
+
+.main__header-auth:hover {
+    opacity: 0.6;
+}
+
+.main__header-buttons {
+    width: auto;
+    height: 53px;
+    display: flex;
+}
+
+.main__header-title {
+    font-style: normal;
+    font-weight: 400;
+    font-size: 50px;
+    line-height: 58px;
+    width: 640px;
+    padding: 0;
+    margin: 75px 0 0 0;
+}
+
+.main__header-photo {
+    margin: 75px 0 0 0;
+    width: 310px;
+    height: 304px;
+}
+
+.main__header-subtitle {
+    font-style: normal;
+    font-weight: 400;
+    font-size: 13px;
+    line-height: 16px;
+    color: #000000;
+    mix-blend-mode: normal;
+    opacity: 0.5;
+    margin: 36px 0 0 0;
+    width: 310px;
+}
+
+.main__header-more {
+    margin: 146px 0 75px 0;
+    border: 1px solid rgba(28, 28, 28, 0.6);
+    background-color: rgba(28, 28, 28, 0.0);
+    border-radius: 3px;
+    width: 129px;
+    height: 36px;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 12px;
+    line-height: 16px;
+    color: #000000;
+    text-align: center;
+    cursor: pointer;
+    transition: 0.5s;
+}
+
+.main__header-more:hover {
+    opacity: 0.6;
+}
+
+.about-project {
+    background: #FAFAFA;
+    margin: 0 0 110px 0;
+}
+
+.about-project__title {
+    font-style: normal;
+    font-weight: 400;
+    font-size: 22px;
+    line-height: 27px;
+    letter-spacing: -0.04em;
+    width: 108px;
+    padding: 0;
+    margin: 100px 0 23px 0;
+}
+
+.main__line {
+    height: 1px;
+    background-color: black;
+}
+
+.about-project__levels {
+    display: flex;
+    flex-direction: column;
+    width: 30.9%;
+    margin: 70px 0 0 0;
+}
+
+.about-project__subtitle {
+    font-style: normal;
+    font-size: 20px;
+    line-height: normal;
+    letter-spacing: -0.8px;
+    padding: 0;
+    margin: 0;
+    font-weight: 400;
+}
+
+.about-project__time {
+    display: flex;
+    flex-direction: column;
+    width: 38.19%;
+    margin: 70px 0 0 0;
+}
+
+.about-project__text {
+    display: flex;
+    justify-content: space-between;
+}
+
+.about-project__paragraph {
+    font-style: normal;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 20px;
+    padding: 0;
+    margin: 22px 0 93px 0;
+    width: 445px;
+}
+
+.about-project__lines {
+    display: flex;
+    flex-direction: row;
+}
+
+.about-project__frontend {
+    width: 80%;
+    height: 36px;
+    background: #F2F2F2;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: normal;
+    text-align: center;
+}
+
+.about-project__backend {
+    width: 20%;
+    height: 36px;
+    background: #3456F3;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: normal;
+    text-align: center;
+}
+
+.about-project__underline_backend {
+    width: 20%;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 17px;
+    color: #A0A0A0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.about-project__underline_frontend {
+    width: 80%;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 17px;
+    color: #A0A0A0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.technologies {
+    background: #F5F5F5;
+}
+
+.technologies__title {
+    font-weight: 400;
+    font-size: 22px;
+    line-height: 27px;
+    letter-spacing: -0.04em;
+    margin: 100px 0 23px 0;
+}
+
+.technologies__main-title {
+    font-weight: 400;
+    font-size: 50px;
+    line-height: 58px;
+    text-align: center;
+    letter-spacing: -0.04em;
+    text-align: center;
+    padding: 0;
+    margin: 90px 0 26px 0;
+}
+
+.technologies__subtitle {
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 20px;
+    text-align: center;
+    letter-spacing: -0.04em;
+    width: 460px;
+    text-align: center;
+    padding: 0;
+    margin: 0 auto 100px auto;
+}
+
+.technologies__tiles {
+    width: 690px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin: 0 auto 100px auto;
+}
+
+.technologies__tile {
+    width: 90px;
+    height: 60px;
+    background: #E8E8E8;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.5s ease;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    letter-spacing: -0.56px;
+}
+
+.technologies__tile:hover {
+    width: 120px;
+    height: 80px;
+}
+
+.student__title {
+    font-style: normal;
+    font-weight: 400;
+    font-size: 22px;
+    line-height: 27px;
+    letter-spacing: -0.04em;
+    margin: 110px 0 23px 0;
+    padding: 0;
+}
+
+.student__name {
+    font-style: normal;
+    font-weight: 400;
+    font-size: 50px;
+    line-height: 58px;
+    letter-spacing: -0.04em;
+    margin: 66px 0 18px 0;
+    padding: 0;
+}
+
+.student {
+    margin: 0 0 134px 0;
+}
+
+.student__status {
+    font-style: normal;
+    font-weight: 500;
+    font-size: 18px;
+    line-height: 20px;
+    margin: 0 0 26px 0;
+    padding: 0;
+}
+
+.student__about {
+    font-style: normal;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 22px;
+    max-width: 600px;
+    padding: 0;
+    margin: 0 0 99px 0;
+    height: 88px;
+}
+
+.student__image {
+    background-image: url(../../images/student.jpg);
+    width: 270px;
+    height: 327px;
+    background-size: cover;
+    background-position: right -5px top 0;
+    background-repeat: no-repeat;
+    margin: 66px 0 0 0;
+    border-radius: 10px;
+}
+
+.student__git {
+    font-style: normal;
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 17px;
+    color: #000000;
+    text-decoration: none;
+    transition: 0.5s;
+}
+
+.student__git:active {
+    color: black;
+}
+
+.student__git:visited {
+    color: black;
+}
+
+.student__git:hover {
+    opacity: 0.6;
+}
+
+.student__portfolio {
+    font-style: normal;
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 20px;
+    color: #A0A0A0;
+    margin: 100px 0 50px 0;
+}
+
+.student__site-text {
+    font-style: normal;
+    font-weight: 400;
+    font-size: 30px;
+    line-height: 50px;
+    letter-spacing: -0.04em;
+    margin: 0 0 30px 0;
+    transition: 0.5s;
+}
+
+.student__line {
+    background: #E8E8E8;
+    width: 100%;
+    height: 1px;
+    margin: 0 0 20px 0;
+}
+
+.student__link {
+    text-decoration: none;
+    color: black;
+    transition: 0.5s;
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+}
+
+.student__link:hover {
+    opacity: 0.6;
+    transition: 0.5s;
+}
+
+
+
+@media screen and (min-width:768px) and (max-width:1279px) {
+    .main__border {
+        width: 92%;
+    }
+
+    .main__border_text {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .main__header-text {
+        order: 2;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .main__header-photo {
+        margin: 141px 0 0 0;
+    }
+
+    .main__header-title {
+        text-align: center;
+        width: 680px;
+        font-size: 40px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: 50px;
+        margin: 48px 0 22px 0;
+    }
+
+    .main__header-subtitle {
+        font-size: 13px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: normal;
+        width: 260px;
+        text-align: center;
+        margin: 0 0 92px 0;
+    }
+
+    .main__header-more {
+        margin: 0 0 76px 0;
+    }
+
+    .about-project__title {
+        font-size: 22px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: normal;
+        letter-spacing: -0.88px;
+        margin: 90px 0 23px 0;
+    }
+
+    .main__border_column {
+        width: 87%;
+    }
+
+    .about-project__levels {
+        display: flex;
+        flex-direction: column;
+        width: 47.75%;
+        margin: 70px 0 0 0;
+    }
+
+    .about-project__time {
+        display: flex;
+        flex-direction: column;
+        width: 47.75%;
+        margin: 70px 0 0 0;
+    }
+
+    .about-project__text {
+        display: flex;
+        justify-content: space-between;
+    }
+
+    .about-project__paragraph {
+        font-style: normal;
+        font-size: 12px;
+        line-height: 18px;
+        padding: 0;
+        margin: 26px 0 110px 0;
+        width: 100%;
+    }
+
+    .about-project__subtitle {
+        font-style: normal;
+        font-weight: 400;
+        font-size: 20px;
+        line-height: normal;
+        letter-spacing: -0.8px;
+        padding: 0;
+        margin: 0;
+        width: 100%;
+    }
+
+    .technologies__title {
+        font-weight: 400;
+        font-style: normal;
+        font-size: 22px;
+        line-height: normal;
+        letter-spacing: -0.88px;
+        margin: 90px 0 23px 0;
+    }
+
+    .technologies__main-title {
+        font-size: 50px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: 58px;
+        letter-spacing: -2px;
+        text-align: center;
+        padding: 0;
+        margin: 80px 0 22px 0;
+    }
+
+    .technologies__subtitle {
+        font-size: 12px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: 18px;
+        letter-spacing: -0.48px;
+        width: 460px;
+        text-align: center;
+        padding: 0;
+        margin: 0 auto 83px auto;
+    }
+
+    .about-project {
+        margin: 0 0 90px 0;
+    }
+
+    .technologies__tiles {
+        width: 648px;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        margin: 0 auto 90px auto;
+    }
+
+    .technologies__tile {
+        width: 84px;
+        height: 57px;
+        background: #E8E8E8;
+        border-radius: 10px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        transition: all 0.5s ease;
+        font-size: 12px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: normal;
+        letter-spacing: -0.48px;
+    }
+
+    .student__title {
+        font-size: 22px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: normal;
+        letter-spacing: -0.88px;
+        margin: 90px 0 23px 0;
+    }
+
+    .student__name {
+        font-size: 40px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: 40px;
+        letter-spacing: -1.6px;
+        margin: 66px 0 16px 0;
+    }
+
+    .student__status {
+        line-height: 18px;
+        margin: 0 0 20px 0;
+    }
+
+    .student__about {
+        font-size: 12px;
+        font-weight: 400;
+        line-height: 18px;
+        max-width: 364px;
+        padding: 0;
+        margin: 0 0 87px 0;
+        height: 108px;
+    }
+
+    .student__image {
+        background-image: url(../../images/student.jpg);
+        width: 255px;
+        height: 307px;
+        background-size: cover;
+        background-position: right -5px top 0;
+        background-repeat: no-repeat;
+        margin: 66px 0 0 0;
+        border-radius: 10px;
+    }
+
+    .student__git {
+        font-size: 14px;
+        font-style: normal;
+        font-weight: 500;
+        line-height: normal;
+    }
+
+    .main__border-person {
+        width: 87%;
+    }
+
+    .student__portfolio {
+        font-size: 18px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: 20px;
+        color: #A0A0A0;
+        margin: 91px 0 50px 0;
+    }
+
+    .student__site-text {
+        font-size: 28px;
+        letter-spacing: -1.12px;
+        margin: 0 0 19px 0;
+        transition: 0.5s;
+    }
+
+    .student__line {
+        background: #E8E8E8;
+        width: 100%;
+        height: 1px;
+        margin: 0 0 20px 0;
+    }
+
+    .student__link:hover {
+        opacity: 0.6;
+        transition: 0.5s;
+    }
+
+    .student {
+        margin: 0 0 90px 0;
+    }
+}
+
+
+
+@media screen and (max-width:767px) {
+    .main__border {
+        width: 91.2%;
+    }
+
+    .main__border_text {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .main__header-text {
+        order: 2;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .main__header-photo {
+        margin: 70px 0 0 0;
+        width: 210.001px;
+        height: 206px;
+    }
+
+    .main__header-title {
+        text-align: center;
+        width: 300px;
+        font-size: 30px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: 38px;
+        margin: 44px 0 24px 0;
+    }
+
+    .main__header-subtitle {
+        font-size: 13px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: normal;
+        width: 260px;
+        text-align: center;
+        margin: 0 0 80px 0;
+    }
+
+    .main__header-more {
+        margin: 0 0 30px 0;
+    }
+
+    .about-project__title {
+        font-size: 18px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: normal;
+        letter-spacing: -0.72px;
+        margin: 70px 0 28px 0;
+    }
+
+    .main__border_column {
+        width: 88.75%;
+    }
+
+    .about-project__levels {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        margin: 70px 0 0 0;
+    }
+
+    .about-project__time {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        margin: 56px 0 60px 0;
+    }
+
+    .about-project__text {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .about-project__paragraph {
+        font-size: 11px;
+        font-style: normal;
+        line-height: 16px;
+        padding: 0;
+        margin: 16px 0 0 0;
+        width: 100%;
+    }
+
+    .about-project__subtitle {
+        font-size: 18px;
+        font-style: normal;
+        line-height: normal;
+        letter-spacing: -0.72px;
+        padding: 0;
+        margin: 0;
+        width: 100%;
+    }
+
+    .about-project__backend {
+        font-size: 11px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: normal;
+        width: 35.2%;
+    }
+
+    .about-project__frontend {
+        font-size: 11px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: normal;
+        width: 64.8%;
+    }
+
+    .about-project__underline_backend {
+        font-size: 11px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: normal;
+        width: 35.2%;
+    }
+
+    .about-project__underline_frontend {
+        font-size: 11px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: normal;
+        width: 64.8%;
+    }
+
+    .technologies__title {
+        font-size: 18px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: normal;
+        letter-spacing: -0.72px;
+        margin: 70px 0 28px 0;
+    }
+
+    .technologies__main-title {
+        font-size: 30px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: normal;
+        letter-spacing: -1.2px;
+        text-align: center;
+        padding: 0;
+        margin: 60px 0 24px 0;
+    }
+
+    .technologies__subtitle {
+        font-size: 11px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: 16px;
+        letter-spacing: -0.44px;
+        width: 100%;
+        text-align: center;
+        padding: 0;
+        margin: 0 auto 40px auto;
+    }
+
+    .about-project {
+        margin: 0 0 70px 0;
+    }
+
+    .technologies__tiles {
+        width: 178px;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        margin: 0 auto 70px auto;
+        flex-wrap: wrap;
+    }
+
+    .technologies__tile {
+        width: 84px;
+        height: 57px;
+        background: #E8E8E8;
+        border-radius: 10px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 12px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: normal;
+        letter-spacing: -0.48px;
+        margin: 10px 0 0 0;
+    }
+
+    .technologies__tile:hover {
+        width: 84px;
+        height: 57px;
+    }
+
+    .student__title {
+        font-size: 18px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: normal;
+        letter-spacing: -0.72px;
+        margin: 70px 0 28px 0;
+    }
+
+    .student__name {
+        font-size: 30px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: normal;
+        letter-spacing: -1.2px;
+        margin: 40px 0 20px 0;
+    }
+
+    .student__status {
+        font-size: 11px;
+        font-style: normal;
+        font-weight: 500;
+        line-height: 16px;
+        margin: 0 0 20px 0;
+    }
+
+    .student__about {
+        font-size: 11px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: 16px;
+        max-width: 292px;
+        padding: 0;
+        margin: 0 0 40px 0;
+        height: 112px;
+    }
+
+    .student__person {
+        order: 2;
+    }
+
+    .student__image {
+        background-image: url(../../images/student.jpg);
+        width: 292px;
+        height: 352px;
+        background-size: cover;
+        background-position: right -5px top 0;
+        background-repeat: no-repeat;
+        margin: 60px 0 0 0;
+        border-radius: 10px;
+    }
+
+    .student__git {
+        font-size: 14px;
+        font-style: normal;
+        font-weight: 500;
+        line-height: normal;
+    }
+
+    .main__border-person {
+        width: 91.25%;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .main__border-links {
+        width: 91.25%;
+    }
+
+    .student__portfolio {
+        font-size: 14px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: 20px;
+        color: #A0A0A0;
+        margin: 70px 0 40px 0;
+    }
+
+    .student__site-text {
+        font-size: 18px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: 28px;
+        letter-spacing: -0.72px;
+        margin: 0 0 19px 0;
+        transition: 0.5s;
+    }
+
+    .student__line {
+        background: #E8E8E8;
+        width: 100%;
+        height: 1px;
+        margin: 0 0 20px 0;
+    }
+
+    .student__link:hover {
+        opacity: 0.6;
+        transition: 0.5s;
+    }
+
+    .student {
+        margin: 0 0 70px 0;
+    }
+
+    .technologies {
+        background-color: white;
+    }
+
+}

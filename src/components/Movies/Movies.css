@@ -1,0 +1,323 @@
+.movies {
+    width: 89%;
+    margin: 0 auto 0 auto;
+}
+
+.movies__form {
+    display: flex;
+    flex-direction: column;
+}
+
+.movies__fieldset {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    margin: 70px 0 15px 0;
+}
+
+.movies__line {
+    height: 1px;
+    width: 100%;
+    background-color: #E8E8E8;
+    margin: 0 0 21px 0;
+}
+
+.movies__search-icon {
+    margin: 0 0 0 6px;
+    width: 34px;
+    height: 34px;
+}
+
+.movies__input {
+    text-align: center;
+    font-size: 28px;
+    font-weight: 500;
+    border: 0;
+    width: 100%;
+    margin: 0 21px 0 10px;
+}
+
+.movies__input:focus {
+    outline: 1px solid lightgray;
+}
+
+.movies__button {
+    border: 0;
+    border-radius: 48px;
+    background: #3456F3;
+    text-align: center;
+    color: white;
+    font-size: 11px;
+    font-weight: 500;
+    line-height: 18px;
+    width: 58px;
+    height: 34px;
+    cursor: pointer;
+    transition: 0.5s;
+}
+
+.movies__button:hover {
+    opacity: 0.9;
+}
+
+.search-form__checkbox {
+    display: none;
+}
+
+.search-form__checkbox+label {
+    position: relative;
+    padding-left: 25px;
+    cursor: pointer;
+}
+
+.search-form__checkbox+label:before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 36px;
+    height: 20px;
+    background-image: url("../../images/checkbox_inactive.svg");
+    background-size: cover;
+    transition: 0.3s;
+    transition-timing-function: steps(200, jump-end);
+}
+
+.search-form__checkbox:checked+label:before {
+    background-image: url("../../images/checkbox_active.svg");
+}
+
+.search-form__checkbox-container {
+    display: flex;
+    margin: 0 auto 49px auto;
+}
+
+.search-form__checkbox-description {
+    padding: 0;
+    margin: 0 0 0 22px;
+}
+
+.movies__cards {
+    display: grid;
+    padding: 0;
+    margin: 70px auto 28px auto;
+    grid-template-columns: repeat(3, 360px);
+    column-gap: 30px;
+    row-gap: 60px;
+    justify-content: center;
+}
+
+.movies__text {
+    display: flex;
+    margin: 14px 0 0 0;
+    padding: 0;
+    justify-content: space-between;
+}
+
+.movies__card-name {
+    font-size: 13px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+    padding: 0;
+    margin: 0 0 0 14px;
+    max-width: 250px;
+}
+
+.movies__card-duration {
+    color: #A0A0A0;
+    font-size: 11px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 10px;
+    padding: 0;
+    margin: 0 18px 0 0;
+}
+
+.movies__card-image {
+    width: 100%;
+    height: 100%;
+}
+
+.movies__card-picture {
+    width: 360px;
+    height: 201px;
+    position: relative;
+}
+
+.movies__card-save {
+    color: black;
+    font-size: 10px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 9px;
+    background: #F4F4F4;
+    border: none;
+    width: 72px;
+    height: 21px;
+    border-radius: 30px;
+    padding: 0;
+    cursor: pointer;
+    position: absolute;
+    top: 14px;
+    right: 14px;
+    justify-content: center;
+    align-items: center;
+    display: none;
+}
+
+.movies__card-save_show {
+    display: flex;
+}
+
+.movies__card-save_saved {
+    background-image: url('../../images/delete.svg');
+    width: 21px;
+    height: 21px;
+    background-size: cover;
+}
+
+.movies__card-save_unactive {
+    display: none;
+}
+
+.movies__card-save_added {
+    width: 21px;
+    height: 21px;
+    background-image: url('../../images/galochka.svg');
+    background-size: cover;
+    cursor: default;
+}
+
+.movies__button-more {
+    margin: 50px auto 80px auto;
+    width: 100%;
+    height: 36px;
+    border: none;
+    border-radius: 6px;
+    background: #F4F4F4;
+    cursor: pointer;
+    font-size: 12px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+}
+
+@media screen and (min-width:768px) and (max-width:1279px) {
+    .movies {
+        width: 92%;
+    }
+
+    .movies__line {
+        margin: 0 0 30px 0;
+    }
+
+    .movies__fieldset {
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+        margin: 86px 0 15px 0;
+    }
+
+    .search-form__checkbox-container {
+        margin: 0 auto 62px auto;
+    }
+
+    .movies__cards {
+        display: grid;
+        padding: 0;
+        margin: 70px auto 12px auto;
+        grid-template-columns: repeat(2, 339px);
+        column-gap: 30px;
+        row-gap: 47px;
+        justify-content: center;
+    }
+
+    .movies__card-picture {
+        width: 339px;
+        height: 190px;
+    }
+
+    .movies__text {
+        margin: 25px 0 0 0;
+    }
+
+    .movies__card-name {
+        margin: 0;
+        max-width: 250px;
+    }
+
+    .movies__card-duration {
+        margin: 0;
+    }
+
+}
+
+@media screen and (max-width:767px) {
+    .movies {
+        width: 91.25%;
+    }
+
+    .movies__line {
+        margin: 0 0 43px 0;
+    }
+
+    .movies__search-icon {
+        display: none;
+    }
+
+    .movies__input {
+        text-align: left;
+    }
+
+    .movies__fieldset {
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+        margin: 92px 0 9px 0;
+    }
+
+    .search-form__checkbox-container {
+        margin: 0 auto 51px auto;
+    }
+
+    .movies__cards {
+        display: grid;
+        padding: 0;
+        margin: 40px auto 13px auto;
+        grid-template-columns: repeat(1, 300px);
+        column-gap: 30px;
+        row-gap: 47px;
+        justify-content: center;
+    }
+
+    .movies__card-picture {
+        width: 300px;
+        height: 168px;
+    }
+
+    .movies__text {
+        margin: 16px 0 0 0;
+    }
+
+    .movies__card-name {
+        margin: 0;
+        max-width: 240px;
+        font-size: 12px;
+        font-style: normal;
+        font-weight: 500;
+        line-height: normal;
+    }
+
+    .movies__card-duration {
+        margin: 0;
+        font-size: 11px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: 10px;
+    }
+
+    .movies__input {
+        margin: 0;
+    }
+}

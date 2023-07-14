@@ -1,0 +1,10 @@
+@import url(./vendor/fonts/fonts.css);
+@import url(./vendor/normalize.css);
+
+body {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  font-family: 'Inter', 'Times New Roman', Times, serif;
+  font-style: normal;
+  font-weight: 400;
+}
