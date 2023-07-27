@@ -48,13 +48,24 @@ function SignUp(props) {
         })
     }
 
+    const handleSubmit = (e) => {
+        e.preventDefault();
+        props.onRegistrationUser({
+            email: formValue.email,
+            password: formValue.password,
+            name: formValue.name,
+            setFormValue: setFormValue
+        });
+        // здесь обработчик регистрации
+    }
+
     return (
         <div className="auth__border">
             <Link to='/' className='auth__logo'><img src={logo} alt='Лого'></img></Link>
             <h1 className='auth__title'>
                 Добро пожаловать!
             </h1>
-            <form className={`auth__form`} name={`auth__form`}>
+            <form className={`auth__form`} name={`auth__form`} onSubmit={handleSubmit}>
                 <label className="auth__fieldset">
                     <span className='auth__input-text auth__input-text_name'>Имя</span>
                     <input type="text" name="name" className="auth__input auth__input_name" id="name" minLength="2"

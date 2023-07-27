@@ -12,7 +12,6 @@ function Header(props) {
 
     function onOpen() {
         setisPopupOpen(true);
-        console.log(isPopupOpen);
     }
 
     function onClose() {

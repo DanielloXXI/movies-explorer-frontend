@@ -1,10 +1,19 @@
 import './Movies.css';
-import React from 'react';
+import { useEffect, useState } from 'react';
 import { useLocation } from "react-router-dom";
-import CardImage from '../../images/card__image.png';
 
-function Movies(props) {
+function Movies({ setInfoPlate, isSavedMovie, onSave, duration, onClickDeleteButton, name, posterLink, movie, savedMovies }) {
     const location = useLocation();
+    const hours = Math.floor(duration / 60);
+    const minutes = duration % 60;
+    const [isLiked, setIsLiked] = useState(false);
+
+    useEffect(() => {
+        if (!isSavedMovie) {
+            const result = savedMovies.some((item) => (movie.id + '') === item.movieId);
+            setIsLiked(result);
+        }
+    }, [savedMovies]);
 
     function onMouseOverPicture(evt) {
         evt.target.parentNode.children[1].classList.add('movies__card-save_show');
@@ -15,27 +24,37 @@ function Movies(props) {
     }
 
     function onSaveClick(evt) {
-        evt.target.classList.add('movies__card-save_added');
-        evt.target.textContent = '';
-        evt.target.setAttribute('disabled', 'disabled');
+
+        onSave()
+            .then((res) => {
+                evt.target.classList.add('movies__card-save_added');
+                evt.target.textContent = '';
+                evt.target.setAttribute('disabled', 'disabled');
+                setIsLiked(true);
+            })
+            .catch(err => {
+                setInfoPlate({ text: err.message, status: false, opened: true })
+            });
     }
 
+
     function onDeleteClick(evt) {
-        // Добавлю позже, когда сделаю функционал...
+        onClickDeleteButton();
     }
+
 
     return (
         <>
             <div className='movies__card'>
                 <div className='movies__card-picture' onMouseOver={onMouseOverPicture} onMouseOut={onMouseOutPicture}>
-                    <img src={CardImage} alt='123' className='movies__card-image'></img>
-                    <button type='button' className={location.pathname === '/movies' ? 'movies__card-save' : 'movies__card-save movies__card-save_saved'} onClick={location.pathname === '/movies' ? onSaveClick : onDeleteClick}>
-                        {location.pathname === '/movies' ? 'Сохранить' : ''}
+                    <img src={posterLink} alt={`Обложка к фильму ${name}`} className='movies__card-image'></img>
+                    <button type='button' disabled={isLiked} className={location.pathname === '/movies' ? isLiked ? 'movies__card-save movies__card-save_added' : 'movies__card-save' : 'movies__card-save movies__card-save_saved'} onClick={location.pathname === '/movies' ? onSaveClick : onDeleteClick}>
+                        {location.pathname === '/movies' ? isLiked ? '' : 'Сохранить' : ''}
                     </button>
                 </div>
                 <div className='movies__text'>
-                    <p className='movies__card-name'>33 слова о дизайне</p>
-                    <span className='movies__card-duration'>1ч 17м</span>
+                    <p className='movies__card-name'>{name}</p>
+                    <span className='movies__card-duration'>{`${hours}ч ${minutes}м`}</span>
                 </div>
             </div>
         </>

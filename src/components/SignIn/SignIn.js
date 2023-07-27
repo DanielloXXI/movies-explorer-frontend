@@ -8,19 +8,6 @@ function SignIn(props) {
     const [formErrorMessage, setFormErrorMessage] = useState({});
     const isFormFieldsValid = !formErrorMessage.email && !formErrorMessage.password && !formValue.email == '' && !formValue.password == '';
 
-    function handleChangeName(e) {
-        const { name, value } = e.target;
-        setFormValue({
-            ...formValue,
-            [name]: value
-        });
-
-        setFormErrorMessage({
-            ...formErrorMessage,
-            [name]: e.target.validationMessage
-        })
-    }
-
     function handleChangeEmail(e) {
         const { name, value } = e.target;
         setFormValue({
@@ -47,13 +34,23 @@ function SignIn(props) {
         })
     }
 
+    const handleSubmit = (e) => {
+        e.preventDefault();
+        props.onAuthUser({
+            email: formValue.email,
+            password: formValue.password,
+            setFormValue: setFormValue
+        });
+        // здесь обработчик регистрации
+    }
+
     return (
         <div className="auth__border">
             <Link to='/' className='auth__logo'><img src={logo} alt='Лого'></img></Link>
             <h1 className='auth__title'>
                 Рады видеть!
             </h1>
-            <form className={`auth__form`} name={`auth__form`}>
+            <form className={`auth__form`} name={`auth__form`} onSubmit={handleSubmit}>
                 <label className="auth__fieldset">
                     <span className='auth__input-text auth__input-text_email'>Почта</span>
                     <input type="email" name="email" className="auth__input auth__input_email"
