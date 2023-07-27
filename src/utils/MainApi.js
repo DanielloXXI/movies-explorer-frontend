@@ -132,7 +132,7 @@ const handleResponse = (res) => {
 
 const mainApi = new MainApi({
     // baseUrl: 'http://localhost:3000',
-    baseUrl: 'https://cybiran.nomoredomains.rocks/api',
+    baseUrl: 'https://cybiran.nomoredomains.rocks',
 });
 
 export default mainApi;
