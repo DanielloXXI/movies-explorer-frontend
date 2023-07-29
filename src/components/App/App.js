@@ -74,6 +74,7 @@ function App() {
       .then((response) => {
         try {
           if (response.status === 200) {
+            console.log(123);
             return response.json();
           }
         } catch (e) {
