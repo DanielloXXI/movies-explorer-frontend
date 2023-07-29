@@ -50,13 +50,19 @@ function SignUp(props) {
 
     const handleSubmit = (e) => {
         e.preventDefault();
+        const { email, password, name } = formValue;
         props.onRegistrationUser({
-            email: formValue.email,
-            password: formValue.password,
-            name: formValue.name,
+            email,
+            password,
+            name,
             setFormValue: setFormValue
-        });
-        // здесь обработчик регистрации
+        })
+            .then((res) => {
+                props.onLoginUser({password, email, setFormValue});
+            })
+            .catch(err => {
+                props.setInfoPlate({ text: err, statusOk: false, opened: true })
+            })
     }
 
     return (

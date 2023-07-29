@@ -5,8 +5,12 @@ import { useNavigate } from "react-router-dom";
 
 function PageNotFound() {
 
-    let history = useNavigate();
-    let goBack = () => history(-1);
+    let navigate = useNavigate();
+
+    const goBack = () => {
+        navigate(-1);
+        navigate(-1);
+    };
 
     return (
         <div className="page-not-found">

@@ -16,7 +16,9 @@ function MainMovies(props) {
     const [isResult, setResult] = useState(false);
     const [savedMovies, setSavedMovies] = useState([]);
 
+
     useEffect(() => {
+        props.setInfoPlate({ text: '', status: true, opened: false });
         getAllMovies();
         getSavedMovies();
     }, []);
@@ -32,6 +34,16 @@ function MainMovies(props) {
                 props.setInfoPlate({ text: err.message, status: false, opened: true });
             })
             .finally(() => setPreloader(false))
+    }
+
+    function handleDeleteMovie(movie) {
+        const removeMovie = savedMovies.find((item) => (movie.id + '') === item.movieId)
+        return mainApi.removeMovie(removeMovie._id)
+            .then(res => {
+                const newArr = savedMovies.filter((item) => item._id !== removeMovie._id)
+                setSavedMovies(newArr);
+            })
+            .catch(err => props.setInfoPlate({ text: err.message, statusOk: false, opened: true }))
     }
 
     function getAllMovies() {
@@ -51,18 +63,24 @@ function MainMovies(props) {
         const filtered = beatMovies.filter((movie) => {
             const isIncluded = movie.nameRU.toLowerCase().includes(meaning.toLowerCase());
             const isShort = movie.duration <= 40;
+            if (meaning == '') {
+                return 0;
+            }
             if (isShortFilm) {
                 return isIncluded && isShort;
-            } else {
+            } 
+            else {
                 return isIncluded;
             }
         });
 
         if (filtered.length === 0) {
-            setResult(true)
+            console.log(isResult);
+            setResult(true);
         }
         else {
-            setResult(false)
+            setResult(false);
+            console.log(filtered);
         }
         localStorage.setItem('searchResult', JSON.stringify(filtered));
         setFilteredMovies(filtered);
@@ -86,7 +104,7 @@ function MainMovies(props) {
 
     return (
         <>
-            <Header></Header>
+            <Header onClose={props.onClose} onOpen={props.onOpen} isPopupOpen={props.isPopupOpen}></Header>
             <main className='movies'>
                 <FindForm onSearch={handleSearch}
                     meaning={meaning}
@@ -99,6 +117,7 @@ function MainMovies(props) {
                     savedMovies={savedMovies}
                     isNeedMoreButton={true}
                     onHandleSaveMovie={handleSaveMovie}
+                    onDeleteMovie={handleDeleteMovie}
                     setInfoPlate={props.setInfoPlate} />
             </main>
             <Footer></Footer>

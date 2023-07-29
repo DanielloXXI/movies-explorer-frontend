@@ -7,6 +7,8 @@ import strelka from '../../images/strelka.svg';
 import Footer from '../Footer/Footer';
 import { Link as LinkRoll } from 'react-scroll';
 import account from '../../images/account.svg';
+import burger from '../../images/burger.svg';
+import PopupMenu from "../PopupMenu/PopupMenu";
 
 function Main(props) {
 
@@ -26,6 +28,7 @@ function Main(props) {
                         <NavLink to="/movies" className={({ isActive }) => `main__header-link ${props.isLoggedIn ? `main__header-link_visible` : ""}`}>Фильмы</NavLink>
                         <NavLink to="/saved-movies" className={({ isActive }) => `main__header-link ${props.isLoggedIn ? `main__header-link_visible` : ""}`}>Сохранённые фильмы</NavLink>
                         <NavLink to='/profile' className={({ isActive }) => `main__header-link ${props.isLoggedIn ? `main__header-link_visible` : ""}`}><button type='button' className='main__header-account'>Аккаунт <img src={account} alt='Лого аккаунт' className='header__account-logo'></img></button></NavLink>
+                        <button type='button' className={props.isLoggedIn ? `header__burger` : `header__burger header__burger_invisible`} onClick={props.onOpen}><img src={burger} alt='Лого аккаунт' className='header__burger-logo'></img></button>
                     </div>
                 </div>
                 <div className="main__border main__border_text">
@@ -131,6 +134,7 @@ function Main(props) {
                 </section>
             </main >
             <Footer></Footer>
+            <PopupMenu isOpened={props.isPopupOpen} onClose={props.onClose}></PopupMenu>
         </>
     );
 }

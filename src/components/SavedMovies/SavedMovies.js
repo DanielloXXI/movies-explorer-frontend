@@ -3,7 +3,7 @@ import Header from '../Header/Header';
 import Footer from '../Footer/Footer';
 import FindForm from '../FindForm/FindForm';
 import MoviesCardList from '../MoviesCardList/MoviesCardList';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import mainApi from '../../utils/MainApi';
 
 function SavedMovies(props) {
@@ -13,6 +13,9 @@ function SavedMovies(props) {
     const [result, setResult] = useState(savedMovies);
     const [isResult, setIsResult] = useState(false);
 
+    useEffect(()=> {
+        props.setInfoPlate({ text: '', status: true, opened: false });
+    }, []);
 
     function handleDeleteMovie(id) {
         return mainApi.removeMovie(id)
@@ -48,7 +51,7 @@ function SavedMovies(props) {
     }
     return (
         <>
-            <Header></Header>
+            <Header onClose={props.onClose} onOpen={props.onOpen} isPopupOpen={props.isPopupOpen}></Header>
             <main className='movies'>
                 <FindForm onSearch={handleSearch}
                     setInfoPlate={props.setInfoPlate}></FindForm>

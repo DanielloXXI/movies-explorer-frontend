@@ -2,30 +2,10 @@ import React, { useState, useEffect } from 'react';
 import Movies from '../Movies/Movies';
 import { useLocation } from 'react-router-dom';
 
-function MoviesCardList({ setInfoPlate, onDelete, onHandleSaveMovie, isNeedMoreButton, movies, savedMovies }) {
+function MoviesCardList({ setInfoPlate, onDelete, onHandleSaveMovie, isNeedMoreButton, movies, savedMovies, onDeleteMovie }) {
     const location = useLocation();
     const [visibleMovies, setVisibleMovies] = useState(12);
     const isSavedMovie = location.pathname === '/saved-movies';
-
-    useEffect(() => {
-        const handleResize = () => {
-            const screenWidth = window.innerWidth;
-            let visibleCount;
-            if (screenWidth < 768) {
-                visibleCount = 5;
-            } else {
-                visibleCount = 12;
-            }
-            setVisibleMovies(visibleCount);
-        };
-
-        handleResize();
-        window.addEventListener('resize', handleResize);
-
-        return () => {
-            window.removeEventListener('resize', handleResize);
-        };
-    }, []);
 
     useEffect(() => {
         let resizeTimeout;
@@ -37,10 +17,19 @@ function MoviesCardList({ setInfoPlate, onDelete, onHandleSaveMovie, isNeedMoreB
                 let visibleCount;
                 if (screenWidth < 768) {
                     visibleCount = 5;
-                } else {
-                    visibleCount = 12;
+                    setVisibleMovies(visibleCount);
+                    return;
                 }
-                setVisibleMovies(visibleCount);
+                if (screenWidth < 1280) {
+                    visibleCount = 8;
+                    setVisibleMovies(visibleCount);
+                    return;
+                } 
+                else {
+                    visibleCount = 12;
+                    setVisibleMovies(visibleCount);
+                    return;
+                }
             }, 500);
         };
 
@@ -53,12 +42,19 @@ function MoviesCardList({ setInfoPlate, onDelete, onHandleSaveMovie, isNeedMoreB
         };
     }, []);
 
-    const handleLoadMore = () => {
+    const handleLoadMore = () => { 
         const screenWidth = window.innerWidth;
         if (screenWidth < 768) {
-            setVisibleMovies((prevVisibleMovies) => prevVisibleMovies + 5);
-        } else {
-            setVisibleMovies((prevVisibleMovies) => prevVisibleMovies + 12);
+            setVisibleMovies((prevVisibleMovies) => prevVisibleMovies + 2);
+            return;
+        }
+        if (screenWidth < 1280) {
+            setVisibleMovies((prevVisibleMovies) => prevVisibleMovies + 2);
+            return;
+        }
+        else {
+            setVisibleMovies((prevVisibleMovies) => prevVisibleMovies + 3);
+            return;
         }
     };
 
@@ -81,6 +77,7 @@ function MoviesCardList({ setInfoPlate, onDelete, onHandleSaveMovie, isNeedMoreB
                             link={movie.trailerLink}
                             posterLink={`https://api.nomoreparties.co${movie.image.url}`}
                             setInfoPlate={setInfoPlate}
+                            onDeleteMovie={()=> onDeleteMovie(movie)}
                         />
                     )) :
 

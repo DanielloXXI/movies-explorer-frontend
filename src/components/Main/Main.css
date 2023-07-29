@@ -731,6 +731,10 @@
     .student {
         margin: 0 0 90px 0;
     }
+
+    .main__header-link {
+        display: none;
+    }
 }
 
 
@@ -1038,6 +1042,10 @@
 
     .technologies {
         background-color: white;
+    }
+
+    .main__header-link {
+        display: none;
     }
 
 }
