@@ -18,7 +18,6 @@ function App() {
 
   const [isLoggedIn, setIsLoggedIn] = React.useState(false);
   const [currentUser, setCurrentUser] = React.useState({});
-  const [isLoading, setIsLoading] = React.useState(false);
   const [infoPlate, setInfoPlate] = React.useState({ text: '', status: true, opened: false });
   const location = useLocation();
   const navigate = useNavigate();
@@ -113,7 +112,6 @@ function App() {
   }
 
   function handleUpdateUser(props) {
-    setIsLoading(true);
     mainApi.setInfoAboutUser(props.name, props.email)
       .then((res) => {
         setCurrentUser(res);
@@ -121,9 +119,6 @@ function App() {
       })
       .catch((err) => {
         setInfoPlate({ text: err.message, status: false, opened: true });
-      })
-      .finally(() => {
-        setIsLoading(false);
       })
   }
 

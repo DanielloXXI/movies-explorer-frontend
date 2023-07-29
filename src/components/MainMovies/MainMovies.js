@@ -76,7 +76,6 @@ function MainMovies(props) {
         });
 
         if (filtered.length === 0) {
-            console.log(isResult);
             setResult(true);
         }
         else {
