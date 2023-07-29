@@ -9,8 +9,15 @@ import { Link as LinkRoll } from 'react-scroll';
 import account from '../../images/account.svg';
 import burger from '../../images/burger.svg';
 import PopupMenu from "../PopupMenu/PopupMenu";
+import { useEffect } from "react";
 
 function Main(props) {
+
+    useEffect(() => {
+
+        props.setInfoPlate({ text: '', status: true, opened: false });
+        props.setisPopupOpen(false);
+      }, []);
 
 
     return (

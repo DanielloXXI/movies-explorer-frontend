@@ -2,6 +2,7 @@ import './SignUp.css';
 import logo from '../../images/logo.svg';
 import { Link } from 'react-router-dom';
 import { useState } from 'react';
+import { EMAIL_CHECKER } from '../../constants/constants';
 
 function SignUp(props) {
 
@@ -25,15 +26,18 @@ function SignUp(props) {
     function handleChangeEmail(e) {
         const { name, value } = e.target;
         setFormValue({
-            ...formValue,
-            [name]: value
+          ...formValue,
+          [name]: value
         });
-
-        setFormErrorMessage({
+    
+        if (value.length > 0) {
+          const isValid = EMAIL_CHECKER.test(value);
+          setFormErrorMessage({
             ...formErrorMessage,
-            [name]: e.target.validationMessage
-        })
-    }
+            [name]: isValid ? '' : 'Некорректный формат email'
+          });
+        }
+      }
 
     function handleChangePassword(e) {
         const { name, value } = e.target;

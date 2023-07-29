@@ -28,6 +28,7 @@ function App() {
   React.useEffect(() => {
     // настало время проверить токен
     tokenCheck();
+    setInfoPlate({ text: '', status: true, opened: false });
   }, []);
 
   const tokenCheck = () => {
@@ -60,7 +61,7 @@ function App() {
       // здесь будем проверять токен
     }
   }
-
+  
   function onOpen() {
     setisPopupOpen(true);
   }
@@ -74,7 +75,6 @@ function App() {
       .then((response) => {
         try {
           if (response.status === 200) {
-            console.log(123);
             return response.json();
           }
         } catch (e) {
@@ -133,11 +133,11 @@ function App() {
       <Routes>
         <Route path="/signup" element={isLoggedIn ? <Navigate to='/' replace /> : <SignUp onRegistrationUser={handleRegistrationUser} onLoginUser={handleLoginUser} setInfoPlate={setInfoPlate}></SignUp>}></Route>
         <Route path='/signin' element={isLoggedIn ? <Navigate to='/' replace /> : <SignIn onAuthUser={handleLoginUser} setInfoPlate={setInfoPlate}></SignIn>}></Route>
-        <Route path="/" element={<Main isLoggedIn={isLoggedIn} onClose={onClose} onOpen={onOpen} isPopupOpen={isPopupOpen}></Main>}></Route>
+        <Route path="/" element={<Main isLoggedIn={isLoggedIn} onClose={onClose} onOpen={onOpen} isPopupOpen={isPopupOpen} setisPopupOpen={setisPopupOpen} setInfoPlate={setInfoPlate}></Main>}></Route>
         <Route path='*' element={<PageNotFound></PageNotFound>}></Route>
-        <Route path='/movies' element={<ProtectedRoute element={MainMovies} isLoggedIn={isLoggedIn} setInfoPlate={setInfoPlate} onClose={onClose} onOpen={onOpen} isPopupOpen={isPopupOpen}></ProtectedRoute>}></Route>
-        <Route path='/saved-movies' element={<ProtectedRoute element={SavedMovies} isLoggedIn={isLoggedIn} setInfoPlate={setInfoPlate} onClose={onClose} onOpen={onOpen} isPopupOpen={isPopupOpen}></ProtectedRoute>}></Route>
-        <Route path='/profile' element={<ProtectedRoute element={Profile} isLoggedIn={isLoggedIn} goExit={goExit} onUpdateUser={handleUpdateUser} setInfoPlate={setInfoPlate} onClose={onClose} onOpen={onOpen} isPopupOpen={isPopupOpen}></ProtectedRoute>}></Route>
+        <Route path='/movies' element={<ProtectedRoute element={MainMovies} isLoggedIn={isLoggedIn} setInfoPlate={setInfoPlate} onClose={onClose} onOpen={onOpen} isPopupOpen={isPopupOpen} setisPopupOpen={setisPopupOpen}></ProtectedRoute>}></Route>
+        <Route path='/saved-movies' element={<ProtectedRoute element={SavedMovies} isLoggedIn={isLoggedIn} setInfoPlate={setInfoPlate} onClose={onClose} onOpen={onOpen} isPopupOpen={isPopupOpen} setisPopupOpen={setisPopupOpen}></ProtectedRoute>}></Route>
+        <Route path='/profile' element={<ProtectedRoute element={Profile} isLoggedIn={isLoggedIn} goExit={goExit} onUpdateUser={handleUpdateUser} setInfoPlate={setInfoPlate} onClose={onClose} onOpen={onOpen} isPopupOpen={isPopupOpen} setisPopupOpen={setisPopupOpen}></ProtectedRoute>}></Route>
       </Routes>
       <InfoPlate text={infoPlate.text} status={infoPlate.status} opened={infoPlate.opened} onClose={closeInfoPlate} />
     </CurrentUserContext.Provider>

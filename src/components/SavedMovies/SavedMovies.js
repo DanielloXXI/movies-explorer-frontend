@@ -15,6 +15,7 @@ function SavedMovies(props) {
 
     useEffect(()=> {
         props.setInfoPlate({ text: '', status: true, opened: false });
+        props.setisPopupOpen(false);
     }, []);
 
     function handleDeleteMovie(id) {

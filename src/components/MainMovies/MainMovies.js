@@ -18,6 +18,7 @@ function MainMovies(props) {
 
 
     useEffect(() => {
+        props.setisPopupOpen(false);
         props.setInfoPlate({ text: '', status: true, opened: false });
         getAllMovies();
         getSavedMovies();
@@ -80,7 +81,6 @@ function MainMovies(props) {
         }
         else {
             setResult(false);
-            console.log(filtered);
         }
         localStorage.setItem('searchResult', JSON.stringify(filtered));
         setFilteredMovies(filtered);

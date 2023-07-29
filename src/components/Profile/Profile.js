@@ -3,6 +3,7 @@ import Header from '../Header/Header';
 import { useState } from 'react';
 import { CurrentUserContext } from "../../contexts/CurrentUserContext";
 import React from 'react';
+import { EMAIL_CHECKER } from '../../constants/constants';
 
 function Profile(props) {
 
@@ -20,8 +21,9 @@ function Profile(props) {
         });
     }, [currentUser]);
 
-    React.useEffect(()=> {
+    React.useEffect(() => {
         props.setInfoPlate({ text: '', status: true, opened: false });
+        props.setisPopupOpen(false);
     }, []);
 
     function handleChangeName(e) {
@@ -37,12 +39,6 @@ function Profile(props) {
             [name]: e.target.validationMessage
         })
 
-        if (formValue.email == email && formValue.name == name) {
-            setButtonStatus(false);
-        }
-        else {
-            setButtonStatus(true);
-        }
     }
 
     function handleChangeEmail(e) {
@@ -52,10 +48,13 @@ function Profile(props) {
             [name]: value
         });
 
-        setFormErrorMessage({
-            ...formErrorMessage,
-            [name]: e.target.validationMessage
-        })
+        if (value.length > 0) {
+            const isValid = EMAIL_CHECKER.test(value);
+            setFormErrorMessage({
+                ...formErrorMessage,
+                [name]: isValid ? '' : 'Некорректный формат email'
+            });
+        }
     }
 
     function editForm(evt) {

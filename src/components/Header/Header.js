@@ -15,7 +15,7 @@ function Header(props) {
             <PopupMenu isOpened={props.isPopupOpen} onClose={props.onClose}></PopupMenu>
             <header className="header">
                 <Link to='/'><img src={logo} alt='Лого' className='header__logo'></img></Link>
-                <NavBar></NavBar>
+                <NavBar onClose={props.onClose}></NavBar>
                 <Link to='/profile' className='header__account-link'><button type='button' className='header__account'>Аккаунт <img src={account} alt='Лого аккаунт' className='header__account-logo'></img></button></Link>
                 <button type='button' className='header__burger' onClick={props.onOpen}><img src={burger} alt='Лого аккаунт' className='header__burger-logo'></img></button>
             </header>
