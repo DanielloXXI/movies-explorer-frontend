@@ -15,16 +15,16 @@ function Profile(props) {
     const { name, email } = currentUser;
 
     React.useEffect(() => {
+        props.setInfoPlate({ text: '', status: true, opened: false });
+        props.setisPopupOpen(false);
+    }, []);
+
+    React.useEffect(() => {
         setFormValue({
             name: currentUser.name,
             email: currentUser.email
         });
     }, [currentUser]);
-
-    React.useEffect(() => {
-        props.setInfoPlate({ text: '', status: true, opened: false });
-        props.setisPopupOpen(false);
-    }, []);
 
     function handleChangeName(e) {
         const { name, value } = e.target;

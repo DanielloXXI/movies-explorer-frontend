@@ -28,8 +28,7 @@ function App() {
   React.useEffect(() => {
     // настало время проверить токен
     tokenCheck();
-    setInfoPlate({ text: '', status: true, opened: false });
-  }, []);
+  }, [isLoggedIn]);
 
   const tokenCheck = () => {
     // если у пользователя есть токен в localStorage, 
