@@ -23,7 +23,6 @@ function App() {
   const navigate = useNavigate();
   const [isPopupOpen, setisPopupOpen] = React.useState(false);
 
-
   React.useEffect(() => {
     // настало время проверить токен
     tokenCheck();
@@ -48,7 +47,9 @@ function App() {
                 .catch((err) => {
                   console.log(`Ошибка ${err}`);
                 });
-              navigate(location);
+              if (location.pathname === '/movies' || location.pathname === '/saved-movies' || location.pathname === '/' || location.pathname === '/profile' || location.pathname === '/signup' || location.pathname === '/signin') {
+                navigate(location);
+              }
             }
             return res;
           })
@@ -59,7 +60,7 @@ function App() {
       // здесь будем проверять токен
     }
   }
-  
+
   function onOpen() {
     setisPopupOpen(true);
   }
