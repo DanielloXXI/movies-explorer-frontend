@@ -69,7 +69,7 @@ function MainMovies(props) {
             }
             if (isShortFilm) {
                 return isIncluded && isShort;
-            } 
+            }
             else {
                 return isIncluded;
             }
@@ -110,14 +110,14 @@ function MainMovies(props) {
                     checkBox={isShortFilm}
                     setInfoPlate={props.setInfoPlate}></FindForm>
                 {isResult && <span className='empty-result'>Ничего не найдено</span>}
-                {preloader && <Preloader />}
-                <MoviesCardList
+                {preloader ? <Preloader /> : <MoviesCardList
                     movies={JSON.parse(localStorage.getItem('searchResult')) || filteredMovies}
                     savedMovies={savedMovies}
                     isNeedMoreButton={true}
                     onHandleSaveMovie={handleSaveMovie}
                     onDeleteMovie={handleDeleteMovie}
-                    setInfoPlate={props.setInfoPlate} />
+                    setInfoPlate={props.setInfoPlate} />}
+
             </main>
             <Footer></Footer>
 
