@@ -25,9 +25,9 @@ function MainMovies(props) {
     }, []);
 
     function getSavedMovies() {
+        setPreloader(true);
         return mainApi.getInitialMovie()
             .then(res => {
-                setPreloader(true);
                 setSavedMovies(res);
                 localStorage.setItem('savedMovie', JSON.stringify(res));
             })
@@ -48,9 +48,9 @@ function MainMovies(props) {
     }
 
     function getAllMovies() {
+        setPreloader(true);
         return getInitialMovies()
             .then(res => {
-                setPreloader(true);
                 setBeatMovies(res);
                 localStorage.setItem('allMovies', JSON.stringify(res));
             })

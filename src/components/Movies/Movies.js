@@ -16,15 +16,13 @@ function Movies({ setInfoPlate, isSavedMovie, onSave, duration, onClickDeleteBut
     }, [savedMovies]);
 
     function onMouseOverPicture(evt) {
-        evt.target.parentNode.parentNode.children[1].classList.add('movies__card-save_show');
+        evt.currentTarget.children[0].children[1].classList.add('movies__card-save_show');
     }
 
     function onMouseOutPicture(evt) {
-        evt.target.parentNode.parentNode.children[1].classList.remove('movies__card-save_show');
-    }
-
-    function onMouseOver(evt) {
-        evt.target.parentNode.children[1].classList.remove('movies__card-save_show');
+        if(!isLiked) {
+            evt.currentTarget.children[0].children[1].classList.remove('movies__card-save_show');
+        }
     }
 
     function onSaveClick(evt) {
@@ -39,10 +37,10 @@ function Movies({ setInfoPlate, isSavedMovie, onSave, duration, onClickDeleteBut
 
     return (
         <>
-            <div className='movies__card'>
-                <div className='movies__card-picture' onMouseOver={onMouseOverPicture} onMouseOut={onMouseOutPicture}>
+            <div className='movies__card' onMouseOver={onMouseOverPicture} onMouseOut={onMouseOutPicture}>
+                <div className='movies__card-picture'>
                     <a href={link}><img src={posterLink} alt={`Обложка к фильму ${name}`} className='movies__card-image'></img></a>
-                    <button type='button' className={location.pathname === '/movies' ? isLiked ? 'movies__card-save movies__card-save_added' : 'movies__card-save' : 'movies__card-save movies__card-save_saved'} onClick={location.pathname === '/movies' ? !isLiked ? onSaveClick : onDeleteMovie : onDeleteClick} onMouseOver={onMouseOver}>
+                    <button type='button' className={location.pathname === '/movies' ? isLiked ? 'movies__card-save movies__card-save_added movies__card-save_show' : 'movies__card-save' : 'movies__card-save movies__card-save_saved'} onClick={location.pathname === '/movies' ? !isLiked ? onSaveClick : onDeleteMovie : onDeleteClick}>
                         {location.pathname === '/movies' ? isLiked ? '' : 'Сохранить' : ''}
                     </button>
                 </div>

@@ -22,8 +22,9 @@ function SavedMovies(props) {
         return mainApi.removeMovie(id)
             .then(res => {
                 const updatedFilteredMovies = savedMovies.filter((movie) => movie._id !== res._id);
+                const resultFilteredMovies = result.filter((movie) => movie._id !== res._id);
                 setSavedMovies(updatedFilteredMovies);
-                setResult(updatedFilteredMovies);
+                setResult(resultFilteredMovies);
             })
             .catch(err => {
                 console.log(err);
@@ -35,6 +36,9 @@ function SavedMovies(props) {
         const filtered = savedMovies.filter((movie) => {
             const isIncluded = movie.nameRU.toLowerCase().includes(meaning.toLowerCase());
             const isShort = movie.duration <= 40;
+            if (meaning == '') {
+                return 0;
+            }
             if (isShortFilm) {
                 return isIncluded && isShort;
             } else {
@@ -49,6 +53,7 @@ function SavedMovies(props) {
             setIsResult(false)
         }
         setResult(filtered);
+        
     }
     return (
         <>
