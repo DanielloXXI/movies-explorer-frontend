@@ -1,0 +1,46 @@
+.info-plate {
+    display: none;
+    position: fixed;
+    bottom: 20px;
+    z-index: 3;
+    min-width: 100px;
+    width: 100%;
+    max-width: 300px;
+    height: 50px;
+    right: 20px;
+}
+
+.info-plate_opened {
+    display: block;
+    cursor: pointer;
+}
+
+.info-plate__container {
+    position: absolute;
+    display: flex;
+    gap: 10px;
+    bottom: 0;
+    height: 100%;
+    background-color: #fff;
+    border-radius: 5px;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+    padding: 5px;
+    left: 0;
+    width: 100%;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+}
+
+.info-plate__icon {
+    width: 40px;
+    height: 40px;
+}
+
+.info-plate__text {
+    font-size: 12px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    text-align: center;
+}

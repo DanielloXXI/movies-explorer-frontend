@@ -2,24 +2,12 @@ import './SignIn.css';
 import logo from '../../images/logo.svg';
 import { Link } from 'react-router-dom';
 import { useState } from 'react';
+import { EMAIL_CHECKER } from '../../constants/constants';
 
 function SignIn(props) {
     const [formValue, setFormValue] = useState({});
     const [formErrorMessage, setFormErrorMessage] = useState({});
     const isFormFieldsValid = !formErrorMessage.email && !formErrorMessage.password && !formValue.email == '' && !formValue.password == '';
-
-    function handleChangeName(e) {
-        const { name, value } = e.target;
-        setFormValue({
-            ...formValue,
-            [name]: value
-        });
-
-        setFormErrorMessage({
-            ...formErrorMessage,
-            [name]: e.target.validationMessage
-        })
-    }
 
     function handleChangeEmail(e) {
         const { name, value } = e.target;
@@ -28,10 +16,13 @@ function SignIn(props) {
             [name]: value
         });
 
-        setFormErrorMessage({
-            ...formErrorMessage,
-            [name]: e.target.validationMessage
-        })
+        if (value.length > 0) {
+            const isValid = EMAIL_CHECKER.test(value);
+            setFormErrorMessage({
+                ...formErrorMessage,
+                [name]: isValid ? '' : 'Некорректный формат email'
+            });
+        }
     }
 
     function handleChangePassword(e) {
@@ -47,13 +38,23 @@ function SignIn(props) {
         })
     }
 
+    const handleSubmit = (e) => {
+        e.preventDefault();
+        props.onAuthUser({
+            email: formValue.email,
+            password: formValue.password,
+            setFormValue: setFormValue
+        });
+        // здесь обработчик регистрации
+    }
+
     return (
         <div className="auth__border">
             <Link to='/' className='auth__logo'><img src={logo} alt='Лого'></img></Link>
             <h1 className='auth__title'>
                 Рады видеть!
             </h1>
-            <form className={`auth__form`} name={`auth__form`}>
+            <form className={`auth__form`} name={`auth__form`} onSubmit={handleSubmit}>
                 <label className="auth__fieldset">
                     <span className='auth__input-text auth__input-text_email'>Почта</span>
                     <input type="email" name="email" className="auth__input auth__input_email"

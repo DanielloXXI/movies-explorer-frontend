@@ -1,42 +1,123 @@
 import './MainMovies.css';
-import Movies from '../Movies/Movies';
-import React from 'react';
+import { useEffect, useState } from 'react';
 import Header from '../Header/Header';
+import Preloader from '../Preloader/Preloader';
+import MoviesCardList from '../MoviesCardList/MoviesCardList';
 import Footer from '../Footer/Footer';
-import search from '../../images/search.svg';
+import FindForm from '../FindForm/FindForm';
+import mainApi from '../../utils/MainApi';
+import { getInitialMovies } from '../../utils/MoviesApi';
+
 
 function MainMovies(props) {
+    const [beatMovies, setBeatMovies] = useState([]);
+    const [preloader, setPreloader] = useState(false);
+    const [filteredMovies, setFilteredMovies] = useState([]);
+    const [isResult, setResult] = useState(false);
+    const [savedMovies, setSavedMovies] = useState([]);
+
+
+    useEffect(() => {
+        props.setisPopupOpen(false);
+        props.setInfoPlate({ text: '', status: true, opened: false });
+        getAllMovies();
+        getSavedMovies();
+    }, []);
+
+    function getSavedMovies() {
+        setPreloader(true);
+        return mainApi.getInitialMovie()
+            .then(res => {
+                setSavedMovies(res);
+                localStorage.setItem('savedMovie', JSON.stringify(res));
+            })
+            .catch(err => {
+                props.setInfoPlate({ text: err.message, status: false, opened: true });
+            })
+            .finally(() => setPreloader(false))
+    }
+
+    function handleDeleteMovie(movie) {
+        const removeMovie = savedMovies.find((item) => (movie.id + '') === item.movieId)
+        return mainApi.removeMovie(removeMovie._id)
+            .then(res => {
+                const newArr = savedMovies.filter((item) => item._id !== removeMovie._id)
+                setSavedMovies(newArr);
+            })
+            .catch(err => props.setInfoPlate({ text: err.message, statusOk: false, opened: true }))
+    }
+
+    function getAllMovies() {
+        setPreloader(true);
+        return getInitialMovies()
+            .then(res => {
+                setBeatMovies(res);
+                localStorage.setItem('allMovies', JSON.stringify(res));
+            })
+            .catch(err => props.setInfoPlate({ text: err.message, status: false, opened: true }))
+            .finally(() => setPreloader(false))
+    }
+
+    const handleSearch = (searchOptions) => {
+        localStorage.setItem('searchOptions', JSON.stringify(searchOptions))
+        const { meaning, isShortFilm } = searchOptions;
+        const filtered = beatMovies.filter((movie) => {
+            const isIncluded = movie.nameRU.toLowerCase().includes(meaning.toLowerCase());
+            const isShort = movie.duration <= 40;
+            if (meaning == '') {
+                return 0;
+            }
+            if (isShortFilm) {
+                return isIncluded && isShort;
+            }
+            else {
+                return isIncluded;
+            }
+        });
+
+        if (filtered.length === 0) {
+            setResult(true);
+        }
+        else {
+            setResult(false);
+        }
+        localStorage.setItem('searchResult', JSON.stringify(filtered));
+        setFilteredMovies(filtered);
+    }
+
+    function handleSaveMovie(movie) {
+        return mainApi.addMovie(movie)
+            .then(res => {
+                setSavedMovies(info => [...info, res])
+            })
+            .catch(err => props.setInfoPlate({ text: err.message, status: false, opened: true }))
+    }
+
+    useEffect(() => {
+        localStorage.setItem('savedMovie', JSON.stringify(savedMovies))
+    }, [savedMovies])
+
+    const searchOptions = JSON.parse(localStorage.getItem('searchOptions')) || {};
+    const meaning = searchOptions.meaning || '';
+    const isShortFilm = searchOptions.isShortFilm || false;
 
     return (
         <>
-            <Header></Header>
+            <Header onClose={props.onClose} onOpen={props.onOpen} isPopupOpen={props.isPopupOpen}></Header>
             <main className='movies'>
-                <form className='movies__form' name={`auth__form`} noValidate>
-                    <label className='movies__fieldset'>
-                        <img src={search} alt='Поиск' className='movies__search-icon'></img>
-                        <input type='text' name="film" className="movies__input movies__input_film" id="film" required placeholder='Фильм'>
-                        </input>
-                        <button type='submit' className='movies__button'>Найти</button>
-                    </label>
-                    <div className='movies__line'>
-                    </div>
-                    <div className='search-form__checkbox-container'>
-                        <input type="checkbox" id="search-form__checkbox" className='search-form__checkbox'></input>
-                        <label htmlFor="search-form__checkbox"></label>
-                        <p className='search-form__checkbox-description'>Короткометражки</p>
-                    </div>
-                </form>
-                <div className='movies__cards'>
-                    <Movies></Movies>
-                    <Movies></Movies>
-                    <Movies></Movies>
-                    <Movies></Movies>
-                    <Movies></Movies>
-                    <Movies></Movies>
-                </div>
-                <div className='movies__more'>
-                    <button type='button' className='movies__button-more'>Ещё</button>
-                </div>
+                <FindForm onSearch={handleSearch}
+                    meaning={meaning}
+                    checkBox={isShortFilm}
+                    setInfoPlate={props.setInfoPlate}></FindForm>
+                {isResult && <span className='empty-result'>Ничего не найдено</span>}
+                {preloader ? <Preloader /> : <MoviesCardList
+                    movies={JSON.parse(localStorage.getItem('searchResult')) || filteredMovies}
+                    savedMovies={savedMovies}
+                    isNeedMoreButton={true}
+                    onHandleSaveMovie={handleSaveMovie}
+                    onDeleteMovie={handleDeleteMovie}
+                    setInfoPlate={props.setInfoPlate} />}
+
             </main>
             <Footer></Footer>
 

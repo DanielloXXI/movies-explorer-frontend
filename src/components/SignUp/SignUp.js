@@ -2,6 +2,7 @@ import './SignUp.css';
 import logo from '../../images/logo.svg';
 import { Link } from 'react-router-dom';
 import { useState } from 'react';
+import { EMAIL_CHECKER } from '../../constants/constants';
 
 function SignUp(props) {
 
@@ -25,15 +26,18 @@ function SignUp(props) {
     function handleChangeEmail(e) {
         const { name, value } = e.target;
         setFormValue({
-            ...formValue,
-            [name]: value
+          ...formValue,
+          [name]: value
         });
-
-        setFormErrorMessage({
+    
+        if (value.length > 0) {
+          const isValid = EMAIL_CHECKER.test(value);
+          setFormErrorMessage({
             ...formErrorMessage,
-            [name]: e.target.validationMessage
-        })
-    }
+            [name]: isValid ? '' : 'Некорректный формат email'
+          });
+        }
+      }
 
     function handleChangePassword(e) {
         const { name, value } = e.target;
@@ -48,13 +52,30 @@ function SignUp(props) {
         })
     }
 
+    const handleSubmit = (e) => {
+        e.preventDefault();
+        const { email, password, name } = formValue;
+        props.onRegistrationUser({
+            email,
+            password,
+            name,
+            setFormValue: setFormValue
+        })
+            .then((res) => {
+                props.onLoginUser({password, email, setFormValue});
+            })
+            .catch(err => {
+                props.setInfoPlate({ text: err, statusOk: false, opened: true })
+            })
+    }
+
     return (
         <div className="auth__border">
             <Link to='/' className='auth__logo'><img src={logo} alt='Лого'></img></Link>
             <h1 className='auth__title'>
                 Добро пожаловать!
             </h1>
-            <form className={`auth__form`} name={`auth__form`}>
+            <form className={`auth__form`} name={`auth__form`} onSubmit={handleSubmit}>
                 <label className="auth__fieldset">
                     <span className='auth__input-text auth__input-text_name'>Имя</span>
                     <input type="text" name="name" className="auth__input auth__input_name" id="name" minLength="2"
