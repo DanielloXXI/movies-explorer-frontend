@@ -81,6 +81,10 @@
         width: 92%;
     }
 
+    .header__burger_invisible {
+        display: none;
+    }
+
 }
 
 @media screen and (max-width:767px) {
@@ -94,6 +98,10 @@
 
     .header {
         width: 91.25%;
+    }
+
+    .header__burger_invisible {
+        display: none;
     }
 
 }

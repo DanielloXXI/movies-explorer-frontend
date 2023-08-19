@@ -1,14 +1,23 @@
 import React from "react";
 import './Main.css';
 import logo from "../../images/logo.svg";
-import { Link } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 import header__photo from "../../images/header__photo.png";
 import strelka from '../../images/strelka.svg';
 import Footer from '../Footer/Footer';
 import { Link as LinkRoll } from 'react-scroll';
+import account from '../../images/account.svg';
+import burger from '../../images/burger.svg';
+import PopupMenu from "../PopupMenu/PopupMenu";
+import { useEffect } from "react";
 
+function Main(props) {
 
-function Main() {
+    useEffect(() => {
+
+        props.setInfoPlate({ text: '', status: true, opened: false });
+        props.setisPopupOpen(false);
+      }, []);
 
 
     return (
@@ -17,12 +26,16 @@ function Main() {
                 <div className="main__border">
                     <Link to='/' className="main__header-logo_link"><img src={logo} alt="Лого" className="main__header-logo" /></Link>
                     <div className="main__header-buttons">
-                        <Link to='/signup' className="main__header-registration">Регистрация</Link>
-                        <Link to="/signin">
-                            <button type="button" className="main__header-auth">
+                        <Link to='/signup' className={`main__header-registration ${props.isLoggedIn ? `` : "main__header-registration_visible"}`}>Регистрация</Link>
+                        <Link to="/signin" className="main__header-auth_link">
+                            <button type="button" className={`main__header-auth ${props.isLoggedIn ? `` : "main__header-auth_visible"}`}>
                                 Войти
                             </button>
                         </Link>
+                        <NavLink to="/movies" className={({ isActive }) => `main__header-link ${props.isLoggedIn ? `main__header-link_visible` : ""}`}>Фильмы</NavLink>
+                        <NavLink to="/saved-movies" className={({ isActive }) => `main__header-link ${props.isLoggedIn ? `main__header-link_visible` : ""}`}>Сохранённые фильмы</NavLink>
+                        <NavLink to='/profile' className={({ isActive }) => `main__header-link ${props.isLoggedIn ? `main__header-link_visible` : ""}`}><button type='button' className='main__header-account'>Аккаунт <img src={account} alt='Лого аккаунт' className='header__account-logo'></img></button></NavLink>
+                        <button type='button' className={props.isLoggedIn ? `header__burger` : `header__burger header__burger_invisible`} onClick={props.onOpen}><img src={burger} alt='Лого аккаунт' className='header__burger-logo'></img></button>
                     </div>
                 </div>
                 <div className="main__border main__border_text">
@@ -128,6 +141,7 @@ function Main() {
                 </section>
             </main >
             <Footer></Footer>
+            <PopupMenu isOpened={props.isPopupOpen} onClose={props.onClose}></PopupMenu>
         </>
     );
 }

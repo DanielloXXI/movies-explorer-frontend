@@ -8,6 +8,52 @@
     height: 38px;
 }
 
+.main__header-link {
+    line-height: 18px;
+    font-size: 13px;
+    color: black;
+    text-decoration: none;
+    margin: 28px 16px 0 0;
+    padding: 0;
+    display: none;
+    text-decoration: none;
+}
+
+.main__header-link:visited {
+    color: black;
+}
+
+.main__header-link:active {
+    color: black;
+}
+
+.main__header-account {
+    border: 0;
+    border-radius: 40px;
+    background: #FAFAFA;
+    box-shadow: 0px 3px 14px 0px rgba(0, 0, 0, 0.08);
+    width: 100px;
+    height: 32px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 13px;
+    font-weight: 500;
+    line-height: 12px;
+    cursor: pointer;
+    margin: 0;
+    text-decoration: none;
+}
+
+.main__header-link:last-child {
+    margin: 23px 0 0 0;
+}
+
+.main__header-link_visible {
+    display: inline;
+    text-decoration: none;
+}
+
 .main__border {
     width: 89%;
     margin: 0 auto 0 auto;
@@ -29,6 +75,11 @@
     text-decoration: none;
     margin: 29px 30px 0 0;
     transition: 0.5s;
+    display: none;
+}
+
+.main__header-registration_visible {
+    display: block;
 }
 
 .main__header-registration:active {
@@ -41,6 +92,18 @@
 
 .main__header-registration:hover {
     opacity: 0.6;
+}
+
+.main__header-auth_link {
+    text-decoration: none;
+}
+
+.main__header-auth_link:active {
+    text-decoration: none;
+}
+
+.main__header-auth_link:visited {
+    text-decoration: none;
 }
 
 .main__header-auth {
@@ -59,6 +122,11 @@
     font-style: normal;
     font-weight: 500;
     line-height: 16px;
+    display: none;
+}
+
+.main__header-auth_visible {
+    display: inline;
 }
 
 .main__header-auth:hover {
@@ -663,6 +731,10 @@
     .student {
         margin: 0 0 90px 0;
     }
+
+    .main__header-link {
+        display: none;
+    }
 }
 
 
@@ -970,6 +1042,10 @@
 
     .technologies {
         background-color: white;
+    }
+
+    .main__header-link {
+        display: none;
     }
 
 }
