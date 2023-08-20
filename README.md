@@ -4,7 +4,7 @@
 ## Test
 
 - **Copy this <a href="https://github.com/DanielloXXI/movies-explorer-frontend">frontend</a> repo and this <a href="https://github.com/DanielloXXI/movies-explorer-backend">backend</a> repo** 
-- **Try command "npm run start" for frontend and "npm run dev" for backend** 
+- **Try command "npm install", "npm run start" for frontend and "npm install", "npm run dev" for backend** 
 - **Wait... and... Congratulations!**
 
 ## Description
